@@ -1,0 +1,90 @@
+<html>
+<head>
+    <title>Casszilla!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 id="page-header">Casszilla!</h1>
+    </header>
+
+    <div id="content">
+        <h2>What's this about?</h2>
+        <p>The purpose of this sample page is to provide a generic testing ground for the Selenium functions found in the <a href="https://github.com/casschin/casszilla-test-templates">Casszilla Templates</a>.</p>
+
+        <h2>Drop down menu</h2>
+        <p>Selected value: <span id="dropdown-selected-value">Default</span></p>
+        <select name="dropdown" id="dropdown">
+            <option value="default" selected>Default</option>
+            <option value="dropdown option 1">dropdown option 1</option>
+            <option value="dropdown option 2">dropdown option 2</option>
+            <option value="dropdown option 3">dropdown option 3</option>
+            <option value="dropdown option 4">dropdown option 4</option>
+            <option value="dropdown option 5">dropdown option 5</option>
+        </select>
+
+        <h2>Various links</h2>
+            <h3>Valid links</h3>
+            <ul id="valid-links">
+                <li><a href="http://google.com/" id="valid-link">Google</a></li>
+                <li><a href="http://yahoo.com/">Yahoo!</a></li>
+                <li><a href="http://bing.com/">Bing</a></li>
+            </ul>
+
+        <h2>Forms</h2>
+            <form action="" id="form">
+                <p>Name: <input type="text" name="name" id="input-field"></p>
+                <p><input type="submit" value="Submit" id="submit-button"></p>
+            </form>
+            <p>Input value: <span id="input-value">No.</span></p>
+
+
+        <h2>Click this stuff</h2>
+            <a href="#" id="click">You can has click?</a>
+            <p>Did you click something?: <span id="clicked">No.</span></p>
+
+        <h2>Item list</h2>
+        <ul id="item-list">
+            <li class="item">
+                <div class="item-block">
+                    <h3 class="item-title">First Item</h3>
+                    <p class="excerpt">Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus. Sed posuere consectetur est at lobortis. Maecenas sed diam eget risus varius blandit sit amet non magna. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                    <p><a href="#" class='item-link'>See More!</a></p>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-block">
+                    <h3 class="item-title">Second Item</h3>
+                    <p class="excerpt">Sed posuere consectetur est at lobortis. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis.</p>
+                    <p><a href="#" class='item-link'>See More!</a></p>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-block">
+                    <h3 class="item-title">Third Item</h3>
+                    <p class="excerpt">Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus.</p>
+                    <p><a href="#" class='item-link'>See More!</a></p>
+                </div>
+            </li>
+            <li class="item">
+                <div class="item-block">
+                    <h3 class="item-title">Fourth Item</h3>
+                    <p class="excerpt">Maecenas sed diam eget risus varius blandit sit amet non magna. Donec sed odio dui. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean lacinia bibendum nulla sed consectetur.</p>
+                    <p><a href="#" class='item-link'>See More!</a></p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <footer>
+        <a href="http://about.me/cass">about me</a> /
+        <a href="http://twitter.com/casschin">@casschin</a> /
+        Cass Chindustries
+        <script>
+            var currentTime = new Date()
+            var year = currentTime.getFullYear()
+            document.write(year)
+        </script>
+    </footer>
+    <script type="text/javascript" src="core.js"></script>
+</body>
+</html>
