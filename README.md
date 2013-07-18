@@ -1,7 +1,7 @@
 Casszilla Test Templates
 ============================
 
-This fork is based on [Mozilla's test templates](https://github.com/mozilla/mozwebqa-test-templates/), adding on some other basic functions that you might need to do to test web pages.
+These templates are based on [Mozilla's test templates](https://github.com/mozilla/mozwebqa-test-templates/), adding on some other basic functions that you might need to do to test web pages.
 
 ## Additional functions:
 * Resizing browser window - good for testing responsive and adaptive designs
