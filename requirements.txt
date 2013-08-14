@@ -1,7 +1,7 @@
 # This pulls in all the libraries needed to run Selenium tests
 # on Mozilla WebQA projects
 
-BeautifulSoup==4.2.1    # Only required for doing link checking without Selenium
+BeautifulSoup4==4.2.1    # Only required for doing link checking without Selenium
 py==1.4.9
 pytest==2.2.4
 pytest-mozwebqa==1.1.1

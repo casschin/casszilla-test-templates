@@ -26,8 +26,16 @@ class HomePage(Base):
     _drop_down_locator = (By.ID, 'dropdown')
     _drop_down_selected_value_locator = (By.ID, 'dropdown-selected-value')
 
+    # Hover locators
+    _hover_div_locator = (By.ID, 'hover-elements')
+    _hover_link_locator = (By.ID, 'hover-link')
+    _hover_image_locator = (By.ID, 'hover-image')
+
     # Link locators, which can be used for checking visibility, accuracy and validity of links
     _valid_link_locator = (By.ID, 'valid-link')
+    _valid_link_one_locator = (By.CSS_SELECTOR, '#valid-links > li:nth-of-type(1) > a')
+    _valid_link_two_locator = (By.CSS_SELECTOR, '#valid-links > li:nth-of-type(2) > a')
+    _valid_link_three_locator = (By.CSS_SELECTOR, '#valid-links > li:nth-of-type(3) > a')
     valid_link_list = [
         {
             'locator': (By.CSS_SELECTOR, '#valid-links > li:nth-of-type(1) > a'),

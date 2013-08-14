@@ -1,4 +1,4 @@
-    #!/usr/bin/env python
+#!/usr/bin/env python
 
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -17,6 +17,13 @@ from base_test import BaseTest
 
 
 class TestHomePage(BaseTest):
+
+    @pytest.mark.nondestructive
+    def test_that_hoverover_image_displays(self, mozwebqa):
+        home_page = HomePage(mozwebqa)
+        home_page.go_to_page()
+        home_page.hover_element(home_page._hover_link_locator)
+        Assert.equal(home_page.is_element_visible(home_page._hover_image_locator), True)
 
     @pytest.mark.nondestructive
     def test_that_page_has_list_items(self, mozwebqa):

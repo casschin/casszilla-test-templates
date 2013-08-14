@@ -15,7 +15,7 @@ class BaseTest:
         # this sets max_retries to 5
         requests.adapters.DEFAULT_RETRIES = 5
         try:
-            r = requests.get(url, verify=False, allow_redirects=True, timeout=timeout)
+            r = requests.get(url, verify=False, allow_redirects=True, timeout=timeout, headers={'User-Agent': 'a user agent'})
             return r.status_code
         except requests.Timeout:
             return 408
@@ -26,7 +26,7 @@ class BaseTest:
             return url
         return base_url + url
 
-    def test_links_are_valid(self, mozwebqa, link_list):
+    def are_links_are_valid(self, mozwebqa, link_list):
         bad_links = []
         for link in link_list:
             if link['href'] != '#':
@@ -36,11 +36,10 @@ class BaseTest:
                     bad_links.append('%s is not a valid url - status code: %s.' % (url, response_code))
         Assert.equal(0, len(bad_links), '%s bad urls found: ' % len(bad_links) + ', '.join(bad_links))
 
-    def test_links_are_visible(self, browser_width, page, link_list):
+    def are_links_are_visible(self, browser_width, page, link_list):
         bad_links = []
         for link in link_list:
             if link.get('min-width') > browser_width or link.get('min-width') == None:
                 if not page.is_element_visible(*link.get('locator')):
                     bad_links.append('The link at %s is not visible' % link.get('locator')[1:])
         Assert.equal(0, len(bad_links), '%s bad links found: ' % len(bad_links) + ', '.join(bad_links))
-

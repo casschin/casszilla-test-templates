@@ -1,0 +1,31 @@
+body {
+    font-family: helvetica;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    font-size: 30px;
+}
+
+footer {
+    text-align: center;
+}
+
+h1 {
+    font-family: helvetica;
+}
+
+h2 {
+    border-bottom: 1px dotted #333;
+    margin: 25px 0 15px 0;
+}
+
+p {
+    margin: 0;
+}
+
+#content {
+    width: 700px;
+    margin: auto;
+}

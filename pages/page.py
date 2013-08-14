@@ -7,6 +7,7 @@ import time
 import requests
 
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import ElementNotVisibleException
 from selenium.common.exceptions import TimeoutException
@@ -25,6 +26,7 @@ class Page(object):
         self.selenium = testsetup.selenium
         self.timeout = testsetup.timeout
         self._selenium_root = hasattr(self, '_root_element') and self._root_element or self.selenium
+        self.mouse = ActionChains(self.selenium)
 
     def open(self, url_fragment):
         """Open the specified url_fragment, which is relative to the base_url, in the current window."""
@@ -44,9 +46,16 @@ class Page(object):
         if option_found is False:
             raise Exception("Could not select option '%s' because it was not found." % value)
 
-    def resize_window(self, width, height):
+    def resize_window(self, width, height = 900):
         """Resizes the window."""
         self.selenium.set_window_size(width, height)
+
+    def maximize_window(self):
+        """Maximizes the size of the window"""
+        self.selenium.maximize_window()
+
+    def execute_script(self, script):
+        self.selenium.execute_script(script)
 
     def click_element(self, locator):
         try:
@@ -66,6 +75,15 @@ class Page(object):
     def clear_input(self, locator):
         try:
             self.find_element(locator).clear()
+            return True
+        except NoSuchElementException:
+            return False
+
+    def hover_element(self, locator):
+        """Hover the cursor over an element"""
+        try:
+            element = self.find_element(locator)
+            self.mouse.move_to_element(element).perform()
             return True
         except NoSuchElementException:
             return False
@@ -120,7 +138,7 @@ class Page(object):
         """
         self.selenium.implicitly_wait(0)
         try:
-            return not self.selenum.find_element(locator).is_displayed()
+            return not self.selenium.find_element(locator).is_displayed()
         except (NoSuchElementException, ElementNotVisibleException):
             return True
         finally:
@@ -180,6 +198,15 @@ class Page(object):
             Assert.fail(TimeoutException)
         finally:
             self.selenium.implicitly_wait(self.testsetup.default_implicit_wait)
+
+    def wait_for_element_not_visible(self, locator):
+        """Wait for the element at the specified locator to be visible in the browser."""
+        count = 0
+        while self.is_element_visible(locator):
+            time.sleep(1)
+            count += 1
+            if count == self.timeout:
+                raise Exception(str(locator) + " is visible")
 
     def get_url_current_page(self):
         """Return the url for the current page."""
