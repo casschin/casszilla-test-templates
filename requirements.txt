@@ -5,7 +5,7 @@ BeautifulSoup4==4.2.1    # Only required for doing link checking without Seleniu
 py==1.4.9
 pytest==2.2.4
 pytest-mozwebqa==1.1.1
-PyYAML==3.10
+PyYAML==5.1
 requests==1.2.0
 selenium
 UnittestZero
