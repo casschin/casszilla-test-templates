@@ -3,7 +3,7 @@
 
 BeautifulSoup4==4.2.1    # Only required for doing link checking without Selenium
 py==1.4.9
-pytest==2.2.4
+pytest==6.2.1
 pytest-mozwebqa==1.1.1
 PyYAML==3.10
 requests==1.2.0
